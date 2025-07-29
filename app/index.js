@@ -6,6 +6,7 @@ import errorHandler from './errorHandler.js';
 const app = express();
 const port = process.env.PORT;
 
+app.use(express.json());
 app.use(router);
 app.use(errorHandler.notFound);
 app.use(errorHandler.internalServerError);
