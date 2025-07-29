@@ -2,7 +2,7 @@ const errorHandler = {
 
     notFound(req, res, next) {
         res.status(404).json({
-            statusCode: 404,
+            statusCode: res.statusCode,
             message: 'Not Found',
         });
     },
@@ -10,7 +10,7 @@ const errorHandler = {
     internalServerError(err, req, res, next) {
         console.error(err);
         res.status(500).json({
-            statusCode: 500,
+            statusCode: res.statusCode,
             message: 'Internal Server Error',
         });
     }

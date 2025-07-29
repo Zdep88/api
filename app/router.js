@@ -7,8 +7,9 @@ const router = Router();
 router.get('/', indexController.index);
 
 router.get('/links', linksController.index);
-router.get('/links/:id', linksController.show);
 router.post('/links', linksController.create);
+router.get('/links/:id', linksController.read);
 router.put('/links/:id', linksController.update);
+router.delete('/links/:id', linksController.delete);
 
 export default router;
