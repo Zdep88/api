@@ -1,6 +1,8 @@
 const httpErrorDictionnary = {
     400: 'Bad Request',
+    401: 'Unauthorized',
     404: 'Not Found',
+    409: 'Conflict',
     418: 'I\'m a teapot',
     500: 'Internal Server Error',
 }

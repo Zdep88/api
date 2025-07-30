@@ -8,11 +8,9 @@ const router = Router();
 router.get('/', indexController.index);
 router.get('/error', indexController.error);
 
-router.get('/users', usersController.index);
-router.post('/users', usersController.create);
-router.get('/users/:id', usersController.read);
-router.put('/users/:id', usersController.update);
-router.delete('/users/:id', usersController.delete);
+router.get('/users', usersController.index); // TODO cut
+router.get('/signup', usersController.signUp);
+router.get('/login', usersController.login);
 
 router.get('/links', linksController.index);
 router.post('/links', linksController.create);

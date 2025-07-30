@@ -10,5 +10,5 @@ await Link.bulkCreate([
 ]);
 
 await User.bulkCreate([
-    { email: "ilpo@gmail.com", password: "ilpo" },
+    { email: "ilpo@gmail.com", hash: "$argon2id$v=19$m=65536,t=3,p=4$VEmsBMC0sUNzuLvCrFeznA$TyrVJ1gngK/37bsQX037D0x6X4asKZClHcM65XWWPd4" },
 ]);

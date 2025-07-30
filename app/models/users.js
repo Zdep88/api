@@ -10,7 +10,7 @@ User.init(
             allowNull: false,
             unique: true,
         },
-        password: {
+        hash: {
             type: DataTypes.STRING,
             allowNull: false,
         },
