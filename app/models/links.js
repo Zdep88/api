@@ -7,7 +7,6 @@ Link.init(
     {
         order: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             defaultValue: 0,
         },
         name: {

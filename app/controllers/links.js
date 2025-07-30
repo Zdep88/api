@@ -1,3 +1,4 @@
+import errorHandler from "../errorHandler.js";
 import { Link } from "../sequelizeRelations.js";
 
 const linksController = {
@@ -8,30 +9,66 @@ const linksController = {
 
     async create(req, res) {
         const { order, name, url } = req.body;
+        if ( !name || !url) {
+            errorHandler.throwError(400, 'Name and URL are required');
+        }
+        if (!Number.isInteger(order) && order !== undefined) {
+            errorHandler.throwError(400, 'If specified, order must be an integer');
+        }
         const link = await Link.create({ order, name, url });
         res.status(201).json(link);
     },
 
     async read(req, res) {
         const { id } = req.params;
+        if (!Number.isInteger(Number(id))) {
+            errorHandler.throwError(400, 'ID must be an integer');
+        }
         const link = await Link.findByPk(id);
+        if (!link) {
+            errorHandler.throwError(404, `Link with ID ${id} not found`);
+        }
         res.status(200).json(link);
     },
 
     async update(req, res) {
         const { id } = req.params;
-        const { order, name, url } = req.body;
+        if (!Number.isInteger(Number(id))) {
+            errorHandler.throwError(400, 'ID must be an integer');
+        }
         const link = await Link.findByPk(id);
-        link.order = order;
-        link.name = name;
-        link.url = url;
+        if (!link) {
+            errorHandler.throwError(404, `Link with ID ${id} not found`);
+        }
+        const { order, name, url } = req.body;
+        if (!name && !url && !order) {
+            errorHandler.throwError(400, 'At least one field (name, url, order) must be provided for update');
+        }
+        if(order) {
+            if (!Number.isInteger(order)) {
+                errorHandler.throwError(400, 'If specified, order must be an integer');
+            }
+            link.order = order;
+        }
+        if (name) {
+            link.name = name;
+        }
+        if (url) {
+            link.url = url;
+        }            
         await link.save();
         res.status(200).json(link);
     },
 
     async delete(req, res) {
         const { id } = req.params;
+        if (!Number.isInteger(Number(id))) {
+            errorHandler.throwError(400, 'ID must be an integer');
+        }
         const link = await Link.findByPk(id);
+        if (!link) {
+            errorHandler.throwError(404, `Link with ID ${id} not found`);
+        }
         await link.destroy();
         res.status(200).json({
             statusCode: 200,
