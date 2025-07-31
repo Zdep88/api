@@ -15,7 +15,7 @@ const errorHandler = {
     },
 
     notFound(req, res, next) {
-        throwError(404);
+        errorHandler.throwError(404);
     },
 
     internalServerError(err, req, res, next) {
