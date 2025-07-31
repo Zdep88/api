@@ -5,6 +5,9 @@ import jwt from 'jsonwebtoken';
 
 const usersController = {
     async signUp(req, res) {
+        if (!req.body) {
+            errorHandler.throwError(400, 'Request body is required');
+        }
         const { email, password } = req.body;
         if (!email || !password) {
             errorHandler.throwError(400, 'Email and password are required');
@@ -15,10 +18,13 @@ const usersController = {
         }
         const hash = await argon2.hash(password);
         const user = await User.create({ email, hash });
-        res.status(201).json({ email: user.email });
+        res.status(201).json({  email: user.email });
     },
 
     async login(req, res) {
+        if (!req.body) {
+            errorHandler.throwError(400, 'Request body is required');
+        }
         const { email, password } = req.body;
         if (!email || !password) {
             errorHandler.throwError(400, 'Email and password are required');

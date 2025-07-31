@@ -8,6 +8,9 @@ const linksController = {
     },
 
     async create(req, res) {
+        if (!req.body) {
+        errorHandler.throwError(400, 'Request body is required');
+        }
         const { order, name, url } = req.body;
         if ( !name || !url) {
             errorHandler.throwError(400, 'Name and URL are required');
@@ -39,6 +42,9 @@ const linksController = {
         const link = await Link.findByPk(id);
         if (!link) {
             errorHandler.throwError(404, `Link with ID ${id} not found`);
+        }
+        if (!req.body) {
+            errorHandler.throwError(400, 'Request body is required');
         }
         const { order, name, url } = req.body;
         if (!name && !url && !order) {
