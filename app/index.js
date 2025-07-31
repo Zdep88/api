@@ -1,13 +1,13 @@
 import 'dotenv/config';
 import express from 'express';
-import router from './router.js';
+import mainRouter from './routers/main.js';
 import errorHandler from './errorHandler.js';
 
 const app = express();
 const port = process.env.PORT;
 
 app.use(express.json());
-app.use(router);
+app.use(mainRouter);
 app.use(errorHandler.notFound);
 app.use(errorHandler.internalServerError);
 

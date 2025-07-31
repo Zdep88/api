@@ -4,11 +4,6 @@ import argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 
 const usersController = {
-    async index(req, res) {
-        const users = await User.findAll();
-        res.status(200).json(users);
-    },
-
     async signUp(req, res) {
         const { email, password } = req.body;
         if (!email || !password) {
@@ -20,7 +15,7 @@ const usersController = {
         }
         const hash = await argon2.hash(password);
         const user = await User.create({ email, hash });
-        res.status(201).json({ id: user.id, email: user.email });
+        res.status(201).json({ email: user.email });
     },
 
     async login(req, res) {
@@ -36,9 +31,33 @@ const usersController = {
         if (!isPasswordValid) {
             errorHandler.throwError(401, 'Invalid password');
         }
-        const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.status(200).json({ token });
     },
-};
+
+    auth(req, res, next) {
+        if (!req.headers.authorization) {
+            errorHandler.throwError(401, 'Authorization header is required');
+        }
+        const token = req.headers.authorization.split(' ')[1];
+        if (!token) {
+            errorHandler.throwError(401, 'Bearer token is required');
+        }
+        try {
+            req.user = jwt.verify(token, process.env.JWT_SECRET);
+        } catch (error) {
+            errorHandler.throwError(401, 'Invalid or expired token');
+        }
+        next();
+    },
+
+    async admin(req, res, next) {
+        const user = await User.findByPk(req.user.id);
+        if (!user || !user.admin) {
+            errorHandler.throwError(403, 'Admin access is required for this route');
+        }
+        next();
+    }
+}
 
 export default usersController;

@@ -16,7 +16,7 @@ Link.init(
         url: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
+        }
     },
     {
         sequelize,

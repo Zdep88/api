@@ -5,7 +5,7 @@
   "main": "app/index.js",
   "scripts": {
     "db_reset": "node createTables.js",
-    "build": "cp .env.example .env && sudo nano .env && npm i && npm run db_reset",
+    "build": "cp .env.example .env && sudo nano .env && npm i && node createTables.js",
     "start": "node app/index.js",
     "dev": "node --watch app/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
