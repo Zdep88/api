@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maths API Documentation</title>
     <link rel="stylesheet" href="/css/maths.css">
 </head>
+
 <body>
     <header class="header">
         <h1>Maths API Documentation</h1>
-        <p class="subtitle">API de calculs mathématiques</p>
+        <p class="subtitle">Mathematical calculations API</p>
     </header>
 
     <main class="container">
@@ -18,7 +20,7 @@
                 <h2 class="route-title">Homothety</h2>
                 <span class="method-badge">GET</span>
             </div>
-            
+
             <div class="route-content">
                 <div class="description">
                     <h3>Description</h3>
@@ -31,12 +33,12 @@
                 </div>
 
                 <div class="input-method">
-                    <h3>Méthode d'entrée</h3>
+                    <h3>Input Method</h3>
                     <span class="badge">Request Body</span>
                 </div>
 
                 <div class="parameters">
-                    <h3>Paramètres</h3>
+                    <h3>Parameters</h3>
                     <div class="param-grid">
                         <div class="param-item">
                             <div class="param-name">pointX</div>
@@ -56,7 +58,8 @@
                         </div>
                         <div class="param-item">
                             <div class="param-name">rotate</div>
-                            <div class="param-desc">Rotation angle in degrees (default: 0) - Use minus sign for counter-clockwise rotation or if y-axis has positive values downwards</div>
+                            <div class="param-desc">Rotation angle in degrees (default: 0) - Use minus sign for
+                                counter-clockwise rotation or if y-axis has positive values downwards</div>
                         </div>
                         <div class="param-item">
                             <div class="param-name">zoom</div>
@@ -67,7 +70,7 @@
 
                 <div class="example-section">
                     <div class="example-request">
-                        <h3>Exemple de requête</h3>
+                        <h3>Request Example</h3>
                         <pre class="code-block"><code>{
   "pointX": 3,
   "pointY": 3,
@@ -79,7 +82,7 @@
                     </div>
 
                     <div class="example-response">
-                        <h3>Exemple de réponse</h3>
+                        <h3>Response Example</h3>
                         <pre class="code-block"><code>{
   "pointX": 2,
   "pointY": 1
@@ -94,4 +97,5 @@
         <p>&copy; 2025 Maths API - Documentation</p>
     </footer>
 </body>
+
 </html>
