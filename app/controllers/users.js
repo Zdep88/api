@@ -18,7 +18,7 @@ const usersController = {
         }
         const hash = await argon2.hash(password);
         const user = await User.create({ email, hash });
-        res.status(201).json({  email: user.email });
+        res.status(201).json({ email: user.email });
     },
 
     async login(req, res) {
