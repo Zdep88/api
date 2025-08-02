@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths API Documentation</title>
+    <link rel="stylesheet" href="/css/maths.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Maths API Documentation</h1>
+        <p class="subtitle">API de calculs mathématiques</p>
+    </header>
+
+    <main class="container">
+        <section class="route-section">
+            <div class="route-header">
+                <h2 class="route-title">Homothety</h2>
+                <span class="method-badge">GET</span>
+            </div>
+            
+            <div class="route-content">
+                <div class="description">
+                    <h3>Description</h3>
+                    <p>Calculate the homothety of a point with respect to a center and transformation parameters.</p>
+                </div>
+
+                <div class="endpoint">
+                    <h3>Endpoint</h3>
+                    <code class="url">https://api.zdep.fr/maths/homothety</code>
+                </div>
+
+                <div class="input-method">
+                    <h3>Méthode d'entrée</h3>
+                    <span class="badge">Request Body</span>
+                </div>
+
+                <div class="parameters">
+                    <h3>Paramètres</h3>
+                    <div class="param-grid">
+                        <div class="param-item">
+                            <div class="param-name">pointX</div>
+                            <div class="param-desc">X coordinate of the point to transform (default: 0)</div>
+                        </div>
+                        <div class="param-item">
+                            <div class="param-name">pointY</div>
+                            <div class="param-desc">Y coordinate of the point to transform (default: 0)</div>
+                        </div>
+                        <div class="param-item">
+                            <div class="param-name">centerX</div>
+                            <div class="param-desc">X coordinate of the center of homothety (default: 0)</div>
+                        </div>
+                        <div class="param-item">
+                            <div class="param-name">centerY</div>
+                            <div class="param-desc">Y coordinate of the center of homothety (default: 0)</div>
+                        </div>
+                        <div class="param-item">
+                            <div class="param-name">rotate</div>
+                            <div class="param-desc">Rotation angle in degrees (default: 0) - Use minus sign for counter-clockwise rotation or if y-axis has positive values downwards</div>
+                        </div>
+                        <div class="param-item">
+                            <div class="param-name">zoom</div>
+                            <div class="param-desc">Zoom factor (default: 1)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <div class="example-request">
+                        <h3>Exemple de requête</h3>
+                        <pre class="code-block"><code>{
+  "pointX": 3,
+  "pointY": 3,
+  "centerX": 2,
+  "centerY": 3,
+  "rotate": -90,
+  "zoom": 2
+}</code></pre>
+                    </div>
+
+                    <div class="example-response">
+                        <h3>Exemple de réponse</h3>
+                        <pre class="code-block"><code>{
+  "pointX": 2,
+  "pointY": 1
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Maths API - Documentation</p>
+    </footer>
+</body>
+</html>

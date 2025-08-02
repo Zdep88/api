@@ -1,0 +1,239 @@
+:root {
+    --primaryColor: rgb(0, 95, 127);
+    --secondaryColor: rgb(0, 190, 255);
+    --backgroundColor: #f8fafc;
+    --cardBackground: #ffffff;
+    --textPrimary: #1e293b;
+    --textSecondary: #64748b;
+    --borderColor: #e2e8f0;
+    --shadowColor: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--textPrimary);
+    background-color: var(--backgroundColor);
+}
+
+.header {
+    background: linear-gradient(135deg, var(--primaryColor), var(--secondaryColor));
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 2px 10px var(--shadowColor);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.route-section {
+    background: var(--cardBackground);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadowColor);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--borderColor);
+}
+
+.route-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--borderColor);
+}
+
+.route-title {
+    font-size: 2rem;
+    color: var(--primaryColor);
+    font-weight: 600;
+}
+
+.method-badge {
+    background: var(--primaryColor);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+
+.route-content h3 {
+    color: var(--primaryColor);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.route-content > div {
+    margin-bottom: 2rem;
+}
+
+.description p {
+    color: var(--textSecondary);
+    font-size: 1.1rem;
+}
+
+.endpoint {
+    background: #f1f5f9;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primaryColor);
+}
+
+.url {
+    background: var(--primaryColor);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.badge {
+    background: var(--secondaryColor);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.param-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.param-item {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primaryColor);
+}
+
+.param-name {
+    font-weight: 600;
+    color: var(--primaryColor);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.param-desc {
+    color: var(--textSecondary);
+    font-size: 0.95rem;
+}
+
+.example-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.example-request h3 {
+    color: var(--primaryColor);
+}
+
+.example-response h3 {
+    color: var(--secondaryColor);
+}
+
+.code-block {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-top: 0.5rem;
+    border: 1px solid #334155;
+}
+
+.code-block code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer {
+    background: var(--textPrimary);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+.footer p {
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 1rem 0.5rem;
+    }
+    
+    .route-section {
+        padding: 1.5rem;
+    }
+    
+    .route-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .example-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .code-block {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1.5rem 0;
+    }
+    
+    .header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .route-title {
+        font-size: 1.5rem;
+    }
+    
+    .code-block {
+        font-size: 0.8rem;
+    }
+}
