@@ -34,7 +34,7 @@
 
                 <div class="input-method">
                     <h3>Input Method</h3>
-                    <span class="badge">Request Body</span>
+                    <span class="badge">Query Parameters</span>
                 </div>
 
                 <div class="parameters">
@@ -71,21 +71,16 @@
                 <div class="example-section">
                     <div class="example-request">
                         <h3>Request Example</h3>
-                        <pre class="code-block"><code>{
-  "pointX": 3,
-  "pointY": 3,
-  "centerX": 2,
-  "centerY": 3,
-  "rotate": -90,
-  "zoom": 2
-}</code></pre>
+                        <pre class="code-block"><code>
+https://api.zdep.fr/maths/homothety?pointX=3&pointY=3&centerX=2&centerY=3&rotate=90&zoom=2
+</code></pre>
                     </div>
 
                     <div class="example-response">
                         <h3>Response Example</h3>
                         <pre class="code-block"><code>{
   "pointX": 2,
-  "pointY": 1
+  "pointY": 5
 }</code></pre>
                     </div>
                 </div>

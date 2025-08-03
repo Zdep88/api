@@ -9,8 +9,8 @@ const router = Router();
 router.get('/', indexController.index);
 router.get('/error', indexController.error);
 
-router.get('/signup', usersController.signUp);
-router.get('/login', usersController.login);
+router.post('/signup', usersController.signUp);
+router.post('/login', usersController.login);
 
 router.use('/links', usersController.auth, usersController.admin);
 router.get('/links', linksController.index);

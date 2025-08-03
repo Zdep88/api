@@ -6,7 +6,7 @@ const mathsController = {
     },
 
     async homothety(req, res) {
-        let { pointX, pointY, centerX, centerY, rotate, zoom } = req.body;
+        let { pointX, pointY, centerX, centerY, rotate, zoom } = req.query;
 
         [pointX, pointY, centerX, centerY, rotate] = [pointX, pointY, centerX, centerY, rotate].map(v => (isNaN(v) ? 0 : v));
 
