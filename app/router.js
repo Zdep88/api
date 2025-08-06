@@ -3,6 +3,7 @@ import indexController from "./controllers/index.js";
 import usersController from "./controllers/users.js";
 import linksController from "./controllers/links.js";
 import mathsController from "./controllers/maths.js";
+import leetspeakController from "./controllers/leetSpeak.js";
 
 const router = Router();
 
@@ -22,5 +23,7 @@ router.delete('/links/:id', linksController.delete);
 router.get('/maths', mathsController.documentation);
 router.get('/maths/roman', mathsController.roman);
 router.get('/maths/homothety', mathsController.homothety);
+
+router.get('/leetspeak', leetspeakController.index);
 
 export default router;
