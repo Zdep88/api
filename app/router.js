@@ -20,7 +20,7 @@ router.patch('/links/:id', linksController.update);
 router.delete('/links/:id', linksController.delete);
 
 router.get('/maths', mathsController.documentation);
+router.get('/maths/roman', mathsController.roman);
 router.get('/maths/homothety', mathsController.homothety);
-// get Roman numeral !!!
 
 export default router;
