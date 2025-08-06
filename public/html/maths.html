@@ -17,6 +17,68 @@
     <main class="container">
         <section class="route-section">
             <div class="route-header">
+                <h2 class="route-title">Roman</h2>
+                <span class="method-badge">GET</span>
+            </div>
+
+            <div class="route-content">
+                <div class="description">
+                    <h3>Description</h3>
+                    <p>Convert a number to its Roman numeral representation and vice versa.</p>
+                </div>
+
+                <div class="endpoint">
+                    <h3>Endpoint</h3>
+                    <code class="url">https://api.zdep.fr/maths/roman</code>
+                </div>
+
+                <div class="input-method">
+                    <h3>Input Method</h3>
+                    <span class="badge">Query Parameters</span>
+                </div>
+
+                <div class="parameters">
+                    <h3>Parameters</h3>
+                    <div class="param-grid">
+                        <div class="param-item">
+                            <div class="param-name">number</div>
+                            <div class="param-desc">A decimal number you want to convert into Roman numeral, or a Roman
+                                numeral you want to convert into decimal.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-section">
+                    <div class="example-request">
+                        <h3>Request Example</h3>
+                        <a
+                            href="https://api.zdep.fr/maths/roman?number=2025">https://api.zdep.fr/maths/roman?number=2025</a>
+                    </div>
+                    <div class="example-response">
+                        <h3>Response Example</h3>
+                        <pre class="code-block"><code>{
+    "pointX": 2,
+    "pointY": 5
+}</code></pre>
+                    </div>
+                </div>
+                <div class="example-section">
+                    <div class="example-request">
+                        <h3>Request Example</h3>
+                        <a
+                            href="https://api.zdep.fr/maths/roman?number=MMXXV">https://api.zdep.fr/maths/roman?number=MMXXV</a>
+                    </div>
+                    <div class="example-response">
+                        <h3>Response Example</h3>
+                        <pre class="code-block"><code>{
+    "pointX": 2,
+    "pointY": 5
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="route-section">
+            <div class="route-header">
                 <h2 class="route-title">Homothety</h2>
                 <span class="method-badge">GET</span>
             </div>
@@ -71,14 +133,15 @@
                 <div class="example-section">
                     <div class="example-request">
                         <h3>Request Example</h3>
-                        <a href="https://api.zdep.fr/maths/homothety?pointX=3&pointY=3&centerX=2&centerY=3&rotate=90&zoom=2">https://api.zdep.fr/maths/homothety?pointX=3&amp;pointY=3&amp;centerX=2&amp;centerY=3&amp;rotate=90&amp;zoom=2</a>
+                        <a
+                            href="https://api.zdep.fr/maths/homothety?pointX=3&pointY=3&centerX=2&centerY=3&rotate=90&zoom=2">https://api.zdep.fr/maths/homothety?pointX=3&amp;pointY=3&amp;centerX=2&amp;centerY=3&amp;rotate=90&amp;zoom=2</a>
                     </div>
 
                     <div class="example-response">
                         <h3>Response Example</h3>
                         <pre class="code-block"><code>{
-  "pointX": 2,
-  "pointY": 5
+    "pointX": 2,
+    "pointY": 5
 }</code></pre>
                     </div>
                 </div>
