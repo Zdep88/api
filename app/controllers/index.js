@@ -20,11 +20,7 @@ const indexController = {
             return res.status(418).json({
                 statusCode: 418,
                 message: "I'm a teapot",
-                messageBis: (error ? "KO : échec de la mise à jour" : "OK : Mise à jour réussie, des bisous"),
-                scriptPath,
-                error,
-                stdout,
-                stderr
+                messageBis: (error ? "KO : " + error : "OK : Mise à jour réussie, des bisous")
             });
         });
     }
