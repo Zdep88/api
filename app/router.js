@@ -9,6 +9,7 @@ const router = Router();
 
 router.get('/', indexController.index);
 router.get('/error', indexController.error);
+router.get('/alive', indexController.alive);
 
 router.post('/signup', usersController.signUp);
 router.post('/login', usersController.login);
@@ -25,5 +26,6 @@ router.get('/maths/roman', mathsController.roman);
 router.get('/maths/homothety', mathsController.homothety);
 
 router.get('/leetspeak', leetspeakController.index);
+
 
 export default router;
