@@ -17,10 +17,12 @@ const indexController = {
         const scriptPath = process.env.ALIVE_SCRIPT_PATH;
         exec(`sh ${scriptPath}alive.sh`, (error, stdout, stderr) => {
             console.log('stdout:', error, stdout, stderr);
-            return res.status(418).json({
-                statusCode: 418,
-                message: "I'm a teapot",
-                messageBis: (error ? "KO" : "OK : Mise à jour réussie, des bisous")
+            return res.status(error ? 500 : 200).json({
+                statut: (error ? "KO" : "OK"),
+                information: (error ? "Echec de la mise à jour." : "Mise à jour réussie !"),
+                warning: "Ce système de mise à jour automatique ne doit pas être utilisé si le fichier .env a été modifié !",
+                explication: "Ce système utilise git pour mettre à jour l'appli, et le fichier .env a été volontairement enlevé de git. Le serveur ne peut donc pas 'deviner' les modifications à apporter à ce fichier. Et pourquoi le fichier .env a été enlevé de git ? Parce qu'il contient des informations potentiellement sensibles genre mot de passe de base de données."
+
             });
         });
     }
